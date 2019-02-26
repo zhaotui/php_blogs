@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>文章管理</title>
+    <link rel="stylesheet" href="/myphp/public/static/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/myphp/public/static/css/style.css" >
+    <script src="/myphp/public/static/js/jquery.min.js" ></script>
+    <script src="/myphp/public/static/js/bootstrap.min.js" ></script>
+    <script src="/myphp/public/static/js/your.js"></script>
+</head>
+<body>
+<!--隐藏导航栏-->
+<div id="left_nav">
+    <div>
+        <a id="xlogo" href="#" >X</a>
+    </div>
+    <div class="left_nav p-4">
+        <h4 class="text-white">欢迎访问</h4>
+        <span class="text-muted">welcome to you</span>
+        <ul>
+            <li><a href="{:url('index/Index/index')}">首页</a></li>
+            <li><a href="{:url('../article/Article/article_list')}">热度和类别</a></li>
+            <li><a href="{:url('../article/Article/article_xq')}">留言入口</a></li>
+            <li><a href="{:url('../login/Login/login')}">admin入口</a></li>
+            <li><a href="{:url('../article/Article/article_manage')}">文章管理</a></li>
+            <li><a href="{:url('../message/Message/message_manage')}">留言管理</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div id="body_content" >
+    <!--header-->
+    <header id="header" class="clearfix" class="container-fluid">
+        <nav class="navbar">
+            {$admin}
+            <!--<div id="admin">-->
+            <!--<a href="#">-->
+            <!--<img src="/myphp/public/static/img/icon6.jpeg" class="img-thumbnail rounded-circle" width="75" height="75">-->
+            <!--<span>hello,admin</span>-->
+            <!--</a>-->
+            <!--</div>-->
+            <div>
+                <img src="/myphp/public/static/img/bg-logo.png" width="200" >
+            </div>
+            <button id="logo" class="navbar-toggler navbar-light bg-light" type="button" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </header>
+<!--content-->
+<div id="content">
+    <div id="container">
+        <div class="row">
+            <div class="col-3" >
+                <div id="test" class="text_div1">
+                    <div class="small-a">
+                        <div class="small-b">
+                            <div class="small-b-icon1"></div>
+                            <h3>My 趣事与游记</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="text_div2 m_top1" >
+                    <div class="small-a">
+                        <div class="small-b">
+                            <div class="small-b-icon2"></div>
+                            <h3>web 专业知识</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="list_div">
+                    <div class="small-a bg-white" >
+                        <div class="small-b">
+                            <h2>{$one_name}</h2>
+                            <p style="color: #cccccc;border-bottom: 1px solid #cccccc">{$one_content}</p>
+                            <p class="p_small">排行榜</p>
+                            <ol class="p_right4">
+                                {volist name='data' id='list'}
+                                <li><a href="article_xq/?article_id={$list.article_id}"><i>{$list.article_name}</i></a></li>
+                                {/volist}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3" >
+                <div class="text_div3">
+                    <div class="small-a">
+                        <div class="small-b">
+                            <div class="small-b-icon3"></div>
+                            <h3>My 学习日志</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="text_div4 m_top1">
+                    <div class="small-a">
+                        <div class="small-b">
+                            <div class="small-b-icon3"></div>
+                            <h3>My 创作日记</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        </div>
+    </div>
+<!--footer-->
+<div id="foot" class="foot"></div>
+
+</body>
+</html>

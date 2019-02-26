@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>{$data.article_name}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link href="/myphp/public/static/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+        <!--<link href="/myphp/public/static/ueditor/css.css" type="text/css" rel="stylesheet">-->
+        <link rel="stylesheet" href="/myphp/public/static/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="/myphp/public/static/css/style.css" >
+        <script type="text/javascript" src="/myphp/public/static/ueditor/third-party/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/myphp/public/static/ueditor/umeditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/myphp/public/static/ueditor/umeditor.min.js"></script>
+        <script type="text/javascript" src="/myphp/public/static/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script type="text/javascript" src="/myphp/public/static/ueditor/js.js"></script>
+        <script src="/myphp/public/static/js/jquery.min.js" ></script>
+        <script src="/myphp/public/static/js/bootstrap.min.js" ></script>
+        <script src="/myphp/public/static/js/your.js"></script>
+        <style>
+            h2.serif{font-family:"Times New Roman",Times,serif;}
+        </style>
+    </head>
+    <body>
+    <div>
+        <!--隐藏导航栏-->
+        <div id="left_nav" style="transform:translate(0px,0px);z-index:999;position: fixed;top: 0;left: -200px;width: 200px;transition:transform 0.5s;background-color: #1d1d1d">
+            <div style="float: right">
+                <a id="xlogo" href="#" style="font-size: 25px;
+    padding: 10px;color: white;text-decoration:none">X</a>
+            </div>
+            <div class="left_nav p-4" style="text-align: center">
+                <h4 class="text-white">欢迎访问</h4>
+                <span class="text-muted">welcome to you</span>
+                <ul>
+                    <li><a href="{:url('index/Index/index')}">首页</a></li>
+                    <li><a href="{:url('../article/Article/article_list')}">热度和类别</a></li>
+                    <li><a href="{:url('../article/Article/article_xq')}">留言入口</a></li>
+                    <li><a href="{:url('../login/Login/login')}">admin入口</a></li>
+                    <li><a href="{:url('../article/Article/article_manage')}">文章管理</a></li>
+                    <li><a href="{:url('../message/Message/message_manage')}">留言管理</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="body_content" style="transform:translate(0px,0px);transition:transform 0.5s;">
+            <!--header-->
+            <header id="header" class="clearfix" class="container-fluid">
+                <nav class="navbar"  >
+                    {$admin}
+                    <!--<div id="admin">-->
+                        <!--<a href="#">-->
+                            <!--<img src="/myphp/public/static/img/icon6.jpeg" class="img-thumbnail rounded-circle" width="75" height="75">-->
+                            <!--<span>hello,admin</span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <div>
+                        <img src="/myphp/public/static/img/bg-logo.png" width="200" >
+                    </div>
+                    <button id="logo" class="navbar-toggler navbar-light bg-light" type="button" >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </header>
+            <!--content-->
+            <div id="content" >
+                <div id="container">
+                    <div class="col-9" style="margin: 25px auto 0 auto;">
+                        <div class="small-a" style="background-color: white;">
+                            <div class="small-b">
+                                <div style="border-bottom: 1px dotted #d8d8d8;background-image: url(/myphp/public/static/img/article_logo.jpg);padding: 50px;">
+                                    <h2 class="serif">文章管理</h2>
+                                    <p style="color: #6c757d">首页 > 文章管理</p>
+                                </div>
+                                <div style="padding: 25px 0 0 0;">
+                                    <form method="post" action="../article_update">
+                                        <div class="form-group" style="display: none;">
+                                            <input type="text" name="article_id"  class="form-control"  value="{$data.article_id}">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="margin-bottom: 0;font-size: medium !important;" id="article_name">文章名称</span>
+                                            </div>
+                                            <input type="text" class="form-control"  name="article_name" aria-describedby="article_name"  value="{$data.article_name}">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="margin-bottom: 0;font-size: medium !important;" id="article_message">文章摘要</span>
+                                            </div>
+                                            <input type="text" class="form-control"  name="article_message" aria-describedby="article_message"  value="{$data.article_message}">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="article_ip" id="article_ip">发布ip</label>
+                                            </div>
+                                            <select class="custom-select" name="article_ip"  >
+                                                <option selected>趣事与游记</option>
+                                                <option value="专业知识">专业知识</option>
+                                                <option value="学习日志">学习日志</option>
+                                                <option value="创作日记">创作日记</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="margin-bottom: 0;font-size: medium !important;" id="paixu">排序</span>
+                                            </div>
+                                            <input type="text" class="form-control"  name="paixu" aria-describedby="paixu"  value="{$data.paixu}">
+                                        </div>
+                                        <div class="form-group">
+                                            <div type="text/plain" id="myEditor"  style="width:1000px;height:240px;" >
+                                                {$data.article_content}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                        <button type="reset" class="btn btn-info">重置</button>
+                                        <a href="javascript:history.back(-1);" class="btn btn-secondary">返回</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <div id="foot"></div>
+        </div>
+    </div>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        $(function () {
+            var um = UM.getEditor('myEditor');
+        })
+    </script>
+    </body>
+    </html>

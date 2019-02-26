@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/myphp/public/static/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/myphp/public/static/css/style.css" >
+    <script src="/myphp/public/static/js/jquery.min.js" ></script>
+    <script src="/myphp/public/static/js/bootstrap.min.js" ></script>
+    <script src="/myphp/public/static/js/your.js"></script>
+</head>
+<body style="overflow-y: hidden;">
+<!--隐藏导航栏-->
+<div id="left_nav" style="transform:translate(0px,0px);z-index:999;position: fixed;top: 0;left: -200px;width: 200px;transition:transform 0.5s;background-color: #1d1d1d">
+    <div style="float: right">
+        <a id="xlogo" href="#" style="font-size: 25px;
+    padding: 10px;color: white;text-decoration:none">X</a>
+    </div>
+    <div class="left_nav p-4" style="text-align: center">
+        <h4 class="text-white">欢迎访问</h4>
+        <span class="text-muted">welcome to you</span>
+        <ul>
+            <li><a href="{:url('index/Index/index')}">首页</a></li>
+            <li><a href="{:url('../article/Article/article_list')}">热度和类别</a></li>
+            <li><a href="{:url('../article/Article/article_xq')}">留言入口</a></li>
+            <li><a href="{:url('../login/Login/login')}">admin入口</a></li>
+            <li><a href="{:url('../article/Article/article_manage')}">文章管理</a></li>
+            <li><a href="{:url('../message/Message/message_manage')}">留言管理</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div id="body_content" style="transform:translate(0px,0px);transition:transform 0.5s;">
+    <!--header-->
+    <header id="header" class="clearfix" class="container-fluid">
+        <nav class="navbar">
+            {$admin}
+            <!--<div id="admin">-->
+                <!--<a href="#">-->
+                    <!--<img src="/myphp/public/static/img/icon6.jpeg" class="img-thumbnail rounded-circle" width="75" height="75">-->
+                    <!--<span>hello,admin</span>-->
+                <!--</a>-->
+            <!--</div>-->
+            <div>
+                <img src="/myphp/public/static/img/bg-logo.png" width="200" >
+            </div>
+            <button id="logo" class="navbar-toggler navbar-light bg-light" type="button" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </header>
+<!--content-->
+<div id="content" style="padding: 2.5% 0 5% 0">
+<div id="container">
+<div class="row">
+    <div class="col-6">
+        <div class="small-a" style="height:280px;margin-bottom: 20px;background-image: url(/myphp/public/static/img/login_logo.jpg); background-size: cover;">
+            <div class="small-b">
+                  <h2 class="serif white">Not the next, the first. </h2>
+                  <p>不做下一个谁，只做第一个我</p>
+            </div>
+        </div>
+        <div class="small-a" style="height:280px;background-image: url(/myphp/public/static/img/login_logo1.jpg); background-size: cover；">
+            <div class="small-b">
+                <h2 class="serif">you'd better bring
+                    cause I’ll bring every I’ve got it</h2>
+                <p>你最好全心关注,因为我会全力以赴</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-6" >
+          <div class="small-a" style="background-color: white;">
+              <div class="small-b">
+              <form action="{:url('login/Login/islogin')}" method="post">
+                  <img src="/myphp/public/static/img/icon6.jpeg" class="img-thumbnail rounded-circle" width="75" height="75">
+                  <h4>俞爱仁</h4>
+                  <p style="color: #d2c3c3;">欢迎admin登录</p>
+                  <div class="form-group">
+                      <input type="text" name="user_name"  placeholder="Enter admin" size="30" >
+                  </div>
+                  <div class="form-group">
+                      <input type="password" name="user_password" id="exampleInputPassword1" placeholder="Password" size="30" >
+                  </div>
+                  <button type="submit" class="btn btn-primary">登录</button>
+                  <button type="reset" class="btn btn-secondary ">重置</button>
+              </form>
+              </div>
+          </div>
+    </div>
+</div>
+</div>
+</div>
+<!--footer-->
+<div id="foot" ></div>
+</div>
+</body>
+</html>
